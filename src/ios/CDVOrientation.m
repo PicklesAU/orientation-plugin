@@ -71,11 +71,11 @@
                     value = [NSNumber numberWithInt:UIInterfaceOrientationPortraitUpsideDown];
                 }
             } else {
-                if (_lastOrientation != UIInterfaceOrientationUnknown) {
-                    [[UIDevice currentDevice] setValue:[NSNumber numberWithInt:UIInterfaceOrientationPortrait] forKey:@"orientation"];
-                    ((void (*)(CDVViewController*, SEL, NSMutableArray*))objc_msgSend)(vc,selector,result);
-                    [UINavigationController attemptRotationToDeviceOrientation];
-                }
+                /* if (_lastOrientation != UIInterfaceOrientationUnknown) { */
+                [[UIDevice currentDevice] setValue:[NSNumber numberWithInt:UIInterfaceOrientationPortrait] forKey:@"orientation"];
+                ((void (*)(CDVViewController*, SEL, NSMutableArray*))objc_msgSend)(vc,selector,result);
+                [UINavigationController attemptRotationToDeviceOrientation];
+                /* } */
             }
             if (value != nil) {
                 _isLocked = true;
